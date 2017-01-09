@@ -4,7 +4,7 @@ Blogetty-blog-blog: Make A Blog Site #122
 
 
 ## Description
-Make a scalable, single page blog app, and make it responsive, BEAUTIFUL and/or INNOVATIVE!
+Make a scalable, single page blog app, and make it responsive. (Stretch: BEAUTIFUL and/or INNOVATIVE!)
 
 ## Context
 Learners research award winning, innovative blog designs and use wireframing to pre-visualize their app and put some thought into their desired user experience.  Learners will gain practice templating to render blog posts as different page views of a single page app. Learners will gain practice setting up a server using Express and/or Express-generator, and templating using Pug (or Handlebars, or equivalent). 
@@ -32,7 +32,8 @@ User should be able to:
 - [ ] Add one feature to your blog app that makes it innovative or add a special touch to set it apart from a generic blog site.
 - [ ] User should be able to filter by a tag/topic and get a page that displays all the blog posts that have this topic as a tag
 - [ ] User can easily share a blog post on social media via social media buttons
-#### Stretch goals requiring the use of database (CRUD functionality):
+
+### Stretch goals requiring the use of database (CRUD functionality):
 - [ ] Edit blog post 
 - [ ] Delete blog post 
 - [ ] Add a new blog post from a front-end user interface 
