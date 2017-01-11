@@ -2,19 +2,9 @@ extends layout
 
 block content
   h1= title
-  p Welcome to the #{title}
+  p Post a blog
 
-  form(method="post", action="/insert")
+  form(method="post", action="/insert_post")
     input(name="title")
     textarea(name="body")
     button(type="submit") Submit
-
-  div
-    h1 Blog 1
-    p.
-      Description of Blog 1
-
-  div
-    h1 Blog 2
-    p.
-      Description of Blog 2
