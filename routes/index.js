@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const {Post, Comment} = require('../database')
 
+//=============================================================================>
 router.get('/home', (request, response) => response.render('index', {returnedAllPosts: [], }))
 
 //=============================================================================>
@@ -10,9 +11,8 @@ router.post('/insert_post', (request, response) =>
 )
 
 //=============================================================================>
-router.post('/all_posts', (request, response) => {
+router.get('/all_posts', (request, response) => {
   const {current_id} = request.params
-
   Select.all(Post.selectAll())
     .then(results => {
       response.render('index', {returnedAllPosts: results})
@@ -20,19 +20,14 @@ router.post('/all_posts', (request, response) => {
 })
 
 //=============================================================================>
-// localhost:3000/post_details/200
 router.get('/post_details/:current_post_id', (request, response) => {
-  request.params.current_post_id = 200
-  const {current_post_id} = request.params
-
-  Promise.all([Post.select(current_post_id), Comment.select(current_post_id)])
+  Promise.all([Post.select(request.params.current_post_id), Comment.select(request.params.current_post_id)])
     .then(results => {
-      const [returnedPost, comments] = results
-
-      response.render('detail', {returnedPost, comments})
+      response.render('detail', {returnedPost: results, comments:results})
     })
 })
 
+//=============================================================================>
 router.get('/hello/:foo', (request, response) => {
   response.json({message: 'Hello ' + request.params.foo + '!'})
 })
@@ -44,3 +39,14 @@ router.post('/insert_comment', (request, response) =>
 )
 
 module.exports = router
+
+
+// ORIGINAL CODE
+// router.get('/post_details/:current_post_id', (request, response) => {
+//   const {current_post_id} = request.params
+//   Promise.all([Post.select(current_post_id), Comment.select(current_post_id)])
+//     .then(results => {
+//       const [returnedPost, comments] = results
+//       response.render('detail', {returnedPost, comments})
+//     })
+// })
