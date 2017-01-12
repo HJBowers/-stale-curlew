@@ -1,0 +1,17 @@
+block content
+  h1= title
+
+  h2=returnedPost.title
+  p=returnedPost.body
+  p=returnedPost.written_at
+
+  each comment in comments
+    p=  comment.user_name
+    p=comment.body
+
+  p Add a comment
+  form(method="post", action="/insert_comment")
+    input(name="user_name")
+    textarea(name="body")
+    input(type="hidden", name="posts_id", value=returnedPost.id)
+    button(type="submit") Submit
