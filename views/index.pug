@@ -8,3 +8,8 @@ block content
     input(name="title")
     textarea(name="body")
     button(type="submit") Submit
+
+
+    each allPosts in returnedAllPosts
+      p= allPosts.title
+      p= allPosts.body
